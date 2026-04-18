@@ -91,3 +91,12 @@ async def login(
             "token_type": "bearer"
         }
     }
+
+@router.get("/me")
+async def get_current_user_info(current_user: User = Depends(get_current_user)):
+    """Return the current user if the JWT token is valid."""
+    return {
+        "id": current_user.id,
+        "username": current_user.username,
+        "data": current_user.data
+    }
