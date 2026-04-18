@@ -6,7 +6,7 @@ from app.config import get_settings
 from app.database import engine
 from app.models import Base
 from app.models import user  # noqa: F401 — register model
-from app.routers import health, data, users
+from app.routers import health, data, users, radar
 
 settings = get_settings()
 
@@ -30,3 +30,4 @@ app.add_middleware(
 app.include_router(health.router)
 app.include_router(data.router)
 app.include_router(users.router)
+app.include_router(radar.router)
